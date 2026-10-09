@@ -1,0 +1,15 @@
+/*
+Bonus (2 Grades)
+
+Solve the problem "Customer Who Visited but Did Not Make Any Transactions" on LeetCode.
+Copy the code that you submitted on the website below.
+*/
+
+SELECT
+  v.customer_id,
+  COUNT(*) AS count_no_trans
+FROM Visits v
+LEFT JOIN Transactions t
+  ON v.visit_id = t.visit_id
+WHERE t.transaction_id IS NULL
+GROUP BY v.customer_id;
